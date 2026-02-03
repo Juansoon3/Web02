@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useTraining, WrongQuestion } from '../../contexts/TrainingContext';
+import { useTraining } from '../../contexts/TrainingContext';
 
 const WrongQuestionBook: React.FC = () => {
   const { wrongQuestions, addWrongQuestion } = useTraining();

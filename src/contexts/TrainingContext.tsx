@@ -140,7 +140,7 @@ export const TrainingProvider: React.FC<{ children: ReactNode }> = ({ children }
     const saved = localStorage.getItem('wrongQuestions');
     return saved ? JSON.parse(saved) : [];
   });
-  const [trainingRecords, setTrainingRecords] = useState<TrainingRecord[]>(() => {
+  const [trainingRecords] = useState<TrainingRecord[]>(() => {
     const saved = localStorage.getItem('trainingRecords');
     return saved ? JSON.parse(saved) : [];
   });
@@ -160,9 +160,7 @@ export const TrainingProvider: React.FC<{ children: ReactNode }> = ({ children }
     localStorage.setItem('wrongQuestions', JSON.stringify(wrongQuestions));
   }, [wrongQuestions]);
   
-  useEffect(() => {
-    localStorage.setItem('trainingRecords', JSON.stringify(trainingRecords));
-  }, [trainingRecords]);
+  // 移除未使用的trainingRecords存储同步
   
   // 开始每日训练
   const startDailyTraining = () => {

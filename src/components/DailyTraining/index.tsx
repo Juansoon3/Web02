@@ -15,10 +15,7 @@ const DailyTraining: React.FC = () => {
   
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [completed, setCompleted] = useState(false);
-  const [responses, setResponses] = useState({
-    scenario: '',
-    expression: ''
-  });
+  // 移除未使用的responses状态变量
   
   useEffect(() => {
     startDailyTraining();

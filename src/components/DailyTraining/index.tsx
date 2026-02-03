@@ -36,13 +36,11 @@ const DailyTraining: React.FC = () => {
   };
   
   const handleScenarioSubmit = (response: string) => {
-    setResponses(prev => ({ ...prev, scenario: response }));
     submitScenarioResponse(response);
     handleNextStep();
   };
   
   const handleExpressionSubmit = (polished: string) => {
-    setResponses(prev => ({ ...prev, expression: polished }));
     submitExpressionPolish(polished);
     handleNextStep();
   };

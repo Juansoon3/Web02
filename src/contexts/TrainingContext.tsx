@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 
 // 类型定义
 export interface Scenario {
@@ -163,7 +163,7 @@ export const TrainingProvider: React.FC<{ children: ReactNode }> = ({ children }
   // 移除未使用的trainingRecords存储同步
   
   // 开始每日训练
-  const startDailyTraining = () => {
+  const startDailyTraining = useCallback(() => {
     const today = new Date().toISOString().split('T')[0];
     const existingRecord = trainingRecords.find(record => record.date === today);
     
@@ -179,7 +179,7 @@ export const TrainingProvider: React.FC<{ children: ReactNode }> = ({ children }
         topic: randomTopic
       });
     }
-  };
+  }, [trainingRecords]);
   
   // 提交场景回应
   const submitScenarioResponse = (response: string) => {
